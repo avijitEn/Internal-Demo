@@ -1,1 +1,46 @@
 
+ docker run -it --name=ubuntux ubuntu [create a new process] [process namespace]
+   -> ps -ef [1 process]
+   -> exit   [container stopped]
+   
+   docker run -it ubuntu   [create a new process]
+   -> ps -ef [1 process]
+   -> Ctrl + PQ   [container running in background]
+   
+   go inside a container in background
+   docker exec -it <containerId|containerName> /bin/bash [create a new process]
+   -> ps -ef [2 processes]
+   -> exit [/bin/bash closed, container still running]
+   
+    docker stop <containerId|containerName>
+   docker kill <containerId|containerName>
+   docker start <containerId|containerName>
+   
+   docker run -itd --name=ubuntux ubuntu [detached/demonazied mode]
+   docker rm <containerId|containerName>
+   docker inspect <containerId|containerName> [metadata]
+   
+   docker  ps				{running containers - 7 status}
+   docker  ps -a			{all containers - 7 status}
+   docker  ps -l			{last one created containers - 7 status}
+   docker  ps -q			{running containers - short containers id}
+   docker  ps -aq			{all containers - short containers id}
+   docker run -it ubuntu
+   docker run -itd --name=ubuntu1 ubuntu
+   docker exec -it e088c6153e46 /bin/bash
+   docker ps -a
+   docker stop $(docker ps -q)
+   docker ps -a
+   docker rm $(docker ps -aq)
+   docker ps -a
+   docker logs <containerId|containerName>
+   docker stats <containerId|containerName>
+   docker top <containerId|containerName>
+   docker images
+   docker pull ubuntu	[ubuntu:latest <tag>]
+   docker pull ubuntu:16.04
+   docker tag alpine:3.7 alpine:Demo_v1
+   docker run -itd --name=nginx1 nginx
+  docker run -itd --name=nginx2 -P nginx
+  docker run -itd --name=nginx3 -p 90:80 nginx
+  docker build -t cporgram:v1 .
