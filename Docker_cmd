@@ -44,3 +44,4 @@
   docker run -itd --name=nginx2 -P nginx
   docker run -itd --name=nginx3 -p 90:80 nginx
   docker build -t cporgram:v1 .
+  docker run --name busybox  busybox sleep 1d
